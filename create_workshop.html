@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Workshop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Create a New Workshop</h1>
+    <form method="POST">
+        <label for="name">Workshop Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" placeholder="DD/MM/YYYY" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <button type="submit">Create Workshop</button>
+    </form>
+    <a href="{{ url_for('home') }}">Back to Workshop List</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Available Workshops</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Workshop Name</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Attendees</th>
+                <th>Register</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workshop in workshops %}
+                <tr>
+                    <td>{{ workshop.name }}</td>
+                    <td>{{ workshop.date }}</td>
+                    <td>{{ workshop.description }}</td>
+                    <td>{{ workshop.attendees | length }}</td>
+                    <td><a href="{{ url_for('register_workshop', workshop_id=loop.index0) }}">Register</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('create_workshop') }}">Create a new workshop (Admin)</a>
+</body>
+</html>
